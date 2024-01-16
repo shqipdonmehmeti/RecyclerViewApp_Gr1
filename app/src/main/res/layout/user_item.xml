@@ -1,49 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test Name"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        />
-    <TextView
-        android:id="@+id/tvStreet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test Street"
-        android:layout_toEndOf="@id/tvName"
-        android:textColor="@color/black"
-        android:layout_marginStart="10dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        />
-    <TextView
-        android:id="@+id/tvGeoLat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test Geo Lat"
-        android:textSize="15sp"
-        android:textStyle="italic"
-        android:layout_below="@id/tvName"
-        android:layout_marginTop="10dp"
-        />
-    <TextView
-        android:id="@+id/tvGeoLng"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test Geo Lng"
-        android:textSize="15sp"
-        android:textStyle="italic"
-        android:layout_below="@id/tvName"
-        android:layout_toEndOf="@id/tvGeoLat"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        />
+    <data>
+    <variable
+        name="user"
+        type="com.example.recyclerviewapp_gr1.models.User" />
+    </data>
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvStreet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.address.street}"
+            android:layout_toEndOf="@id/tvName"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvGeoLat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.address.geo.lat}"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            android:layout_below="@id/tvName"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/tvGeoLng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.address.geo.lng}"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            android:layout_below="@id/tvName"
+            android:layout_toEndOf="@id/tvGeoLat"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp" />
+
+    </RelativeLayout>
+</layout>
